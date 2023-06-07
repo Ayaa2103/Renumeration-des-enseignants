@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login - Y School</title>
+	<title>Connexion -GS enseignants-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" href="logo.png">
+	<link rel="icon" href="G.S.png">
 </head>
 <body class="body-login">
     <div class="black-fill"><br /> <br />
@@ -16,47 +16,47 @@
     	      action="req/login.php">
 
     		<div class="text-center">
-    			<img src="logo.png"
+    			<img src="G.S (1).png"
     			     width="100">
     		</div>
-    		<h3>LOGIN</h3>
+    		<h3>Connexion</h3>
     		<?php if (isset($_GET['error'])) { ?>
     		<div class="alert alert-danger" role="alert">
 			  <?=$_GET['error']?>
 			</div>
 			<?php } ?>
 		  <div class="mb-3">
-		    <label class="form-label">Username</label>
+		    <label class="form-label">Nom d'utilisateur</label>
 		    <input type="text" 
 		           class="form-control"
 		           name="uname">
 		  </div>
 		  
 		  <div class="mb-3">
-		    <label class="form-label">Password</label>
+		    <label class="form-label">Mot de passe</label>
 		    <input type="password" 
 		           class="form-control"
 		           name="pass">
 		  </div>
 
 		  <div class="mb-3">
-		    <label class="form-label">Login As</label>
+		    <label class="form-label">Se connecter en tant que :</label>
 		    <select class="form-control"
 		            name="role">
 		    	<option value="1">Admin</option>
-		    	<option value="2">Teacher</option>
-		    	<option value="3">Student</option>
-		    	<option value="4">Registrar Office</option>
+		    	<option value="2">Enseignant</option>
+		    	
+		    	<option value="4">Comptable</option>
 		    </select>
 		  </div>
 
-		  <button type="submit" class="btn btn-primary">Login</button>
-		  <a href="index.php" class="text-decoration-none">Home</a>
+		  <button type="submit" class="btn btn-primary">Se connecter</button>
+		  <a href="index.php" class="text-decoration-none">Acceuil</a>
 		</form>
         
         <br /><br />
         <div class="text-center text-light">
-        	Copyright &copy; 2022 Y School. All rights reserved.
+        	Copyright &copy; 2023 G.S enseignants. Tous les droits sont resérvés.
         </div>
 
     	</div>

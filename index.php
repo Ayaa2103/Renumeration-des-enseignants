@@ -11,10 +11,13 @@ if ($setting != 0) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Welcome to <?=$setting['school_name']?></title>
+	<title>Acceuil-<?=$setting['school_name']?>-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Darumadrop+One&family=Tsukimi+Rounded:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" href="logo.png">
+	<link rel="icon" href="G.S.png">
 </head>
 <body class="body-home">
     <div class="black-fill"><br /> <br />
@@ -23,7 +26,7 @@ if ($setting != 0) {
     	     id="homeNav">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="#">
-		    	<img src="logo.png" width="40">
+		    	<img src="G.S (1).png" width="50">
 		    </a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
@@ -31,26 +34,26 @@ if ($setting != 0) {
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="#">Home</a>
+		          <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#about">About</a>
+		          <a class="nav-link" href="#about">A propos</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#contact">Contact</a>
+		          <a class="nav-link" href="#contact">Contactez-nous</a>
 		        </li>
 		      </ul>
 		      <ul class="navbar-nav me-right mb-2 mb-lg-0">
 		      	<li class="nav-item">
-		          <a class="nav-link" href="login.php">Login</a>
+		          <a class="nav-link" href="login.php">Se connecter</a>
 		        </li>
 		      </ul>
 		  </div>
 		    </div>
 		</nav>
         <section class="welcome-text d-flex justify-content-center align-items-center flex-column">
-        	<img src="logo.png" >
-        	<h4>Welcome to <?=$setting['school_name']?></h4>
+        	<img src="G.S (2).png">
+        	<h4><?=$setting['school_name']?></h4>
         	<p><?=$setting['slogan']?></p>
         </section>
         <section id="about"
@@ -58,13 +61,13 @@ if ($setting != 0) {
         	<div class="card mb-3 card-1">
 			  <div class="row g-0">
 			    <div class="col-md-4">
-			      <img src="logo.png" class="img-fluid rounded-start" >
+			      <img src="G.S (1).png" class="img-fluid rounded-start" >
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
-			        <h5 class="card-title">About Us</h5>
+			        <h5 class="card-title">A propos de nous</h5>
 			        <p class="card-text"><?=$setting['about']?></p>
-			        <p class="card-text"><small class="text-muted">Y School</small></p>
+			        <p class="card-text"><small class="text-muted">G.S enseigant</small></p>
 			      </div>
 			    </div>
 			  </div>
@@ -74,7 +77,7 @@ if ($setting != 0) {
                  class="d-flex justify-content-center align-items-center flex-column">
         	<form method="post"
     	          action="req/contact.php">
-        		<h3>Contact Us</h3>
+        		<h3>Contactez-nous</h3>
         		<?php if (isset($_GET['error'])) { ?>
 	    		<div class="alert alert-danger" role="alert">
 				  <?=$_GET['error']?>
@@ -86,23 +89,23 @@ if ($setting != 0) {
 		          </div>
 		        <?php } ?>
 			  <div class="mb-3">
-			    <label for="exampleInputEmail1" class="form-label">Email address</label>
+			    <label for="exampleInputEmail1" class="form-label">adresse E-mail</label>
 			    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+			    <div id="emailHelp" class="form-text">Nous ne partagerons vos informations avec personne</div>
 			  </div>
 			  <div class="mb-3">
-			    <label class="form-label">Full Name</label>
+			    <label class="form-label">Nom complet</label>
 			    <input type="text" name="full_name" class="form-control">
 			  </div>
 			  <div class="mb-3">
 			    <label class="form-label">Message</label>
 			    <textarea class="form-control"name="message" rows="4"></textarea>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Send</button>
+			  <button type="submit" class="btn btn-primary">Envoyer</button>
 			</form>
         </section>
         <div class="text-center text-light">
-        	Copyright &copy; <?=$setting['current_year']?> <?=$setting['school_name']?>. All rights reserved.
+        	Copyright &copy; <?=$setting['current_year']?> <?=$setting['school_name']?>. Tous les droits sont réservés.
         </div>
 
     	</div>

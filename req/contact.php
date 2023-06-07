@@ -11,15 +11,15 @@ if (isset($_POST['email']) &&
 	$message   = $_POST['message'];
 
 	if (empty($email)) {
-		$em  = "Email is required";
+		$em  = "Adresse email requis !";
 		header("Location: ../index.php?error=$em#contact");
 		exit;
 	}else if (empty($full_name)) {
-		$em  = "Full name is required";
+		$em  = "Nom complet requis !";
 		header("Location: ../index.php?error=$em#contact");
 		exit;
 	}else if (empty($message)) {
-		$em  = "Massage is required";
+		$em  = "Massage requis !";
 		header("Location: ../index.php?error=$em#contact");
 		exit;
 	}else {
@@ -28,7 +28,7 @@ if (isset($_POST['email']) &&
                  VALUES(?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$full_name, $email, $message]);
-        $sm = "Message sent successfully";
+        $sm = "Message envoyé avec succès";
         header("Location: ../index.php?success=$sm#contact");
         exit;
 	}

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .body-home, .body-login {
-	background: url(../img/bg.jpg);
+	background: url(../img/group-kids-studying-school.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -12,27 +12,33 @@
 	background: rgba(255,255,255, 0.5) !important;
 }
 .welcome-text {
+	
 	min-height: 80vh;
 }
 .welcome-text img {
-	width: 100px;
+	width: 200px;
 }
 .welcome-text h4 {
 	color: #eee;
 	font-size: 51px;
-	font-family: 'Lobster', cursive;
-
+	font-family: 'Dancing Script', cursive;
+	font-family: 'Darumadrop One', cursive;
+	font-family: 'Tsukimi Rounded', sans-serif;
 }
 .welcome-text p {
+	font-size: large;
 	color: #222;
 	background: rgba(255,255,255, 0.5);
-	padding: 5px;
+	margin-top: 55px;
+	padding: 10px;
 	border-radius: 4px;
 }
 #about {
 	min-height: 100vh;
 }
 #about .card-1{
+	font-size: larger;
+	
 	max-width: 600px;
 	width: 90%;
 	background: rgba(255,255,255, 0.5);
@@ -41,7 +47,7 @@
 }
 #about .card-1 h5{
 	font-family: 'Lobster', cursive;
-	font-size: 28px;
+	font-size: 30px;
 }
 
 #contact {
