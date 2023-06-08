@@ -10,11 +10,11 @@ if (isset($_SESSION['admin_id']) &&
 
      $id = $_GET['teacher_id'];
      if (removeTeacher($id, $conn)) {
-     	$sm = "Successfully deleted!";
+     	$sm = "Suprimé avec succès !";
         header("Location: teacher.php?success=$sm");
         exit;
      }else {
-        $em = "Unknown error occurred";
+        $em = "Une erreur est survenu !";
         header("Location: teacher.php?error=$em");
         exit;
      }

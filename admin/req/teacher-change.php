@@ -25,23 +25,23 @@ if (isset($_POST['admin_pass']) &&
     $data = 'teacher_id='.$teacher_id.'#change_password';
 
     if (empty($admin_pass)) {
-		$em  = "Admin password is required";
+		$em  = "Mot de passe Admin requis";
 		header("Location: ../teacher-edit.php?perror=$em&$data");
 		exit;
 	}else if (empty($new_pass)) {
-		$em  = "New password is required";
+		$em  = "Nouveau mot de passe requis";
 		header("Location: ../teacher-edit.php?perror=$em&$data");
 		exit;
 	}else if (empty($c_new_pass)) {
-		$em  = "Confirmation password is required";
+		$em  = "confirmation de mot de passe requis !";
 		header("Location: ../teacher-edit.php?perror=$em&$data");
 		exit;
 	}else if ($new_pass !== $c_new_pass) {
-        $em  = "New password and confirm password does not match";
+        $em  = "Ressayez une autre fois";
         header("Location: ../teacher-edit.php?perror=$em&$data");
         exit;
     }else if (!adminPasswordVerify($admin_pass, $conn, $id)) {
-        $em  = "Incorrect admin password";
+        $em  = "Mot de passe Admin incorrect";
         header("Location: ../teacher-edit.php?perror=$em&$data");
         exit;
     }else {
@@ -54,13 +54,13 @@ if (isset($_POST['admin_pass']) &&
 
         $stmt = $conn->prepare($sql);
         $stmt->execute([$new_pass, $teacher_id]);
-        $sm = "The password has been changed successfully!";
+        $sm = "Changement avec succès !";
         header("Location: ../teacher-edit.php?psuccess=$sm&$data");
         exit;
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../teacher-edit.php?error=$em&$data");
     exit;
   }

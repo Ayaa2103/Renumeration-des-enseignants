@@ -48,55 +48,55 @@ if (isset($_POST['fname']) &&
     $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
 
     if (empty($fname)) {
-		$em  = "First name is required";
+		$em  = "Prénom requis !";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (empty($lname)) {
-		$em  = "Last name is required";
+		$em  = "Nom requis !";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (empty($uname)) {
-		$em  = "Username is required";
+		$em  = "Nom d'utilisateur requis !";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (!unameIsUnique($uname, $conn)) {
-		$em  = "Username is taken! try another";
+		$em  = "Essayer un autre, nom d'utilisateur déja utilisé !";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (empty($pass)) {
-		$em  = "Password is required";
+		$em  = "Mot de passe requis !";
 		header("Location: ../teacher-add.php?error=$em&$data");
 		exit;
 	}else if (empty($address)) {
-        $em  = "Address is required";
+        $em  = "Adresse de domicile requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($employee_number)) {
-        $em  = "Employee number is required";
+        $em  = "Numéro ID requis";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($phone_number)) {
-        $em  = "Phone number is required";
+        $em  = "Numéro de telephone requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($qualification)) {
-        $em  = "Qualification is required";
+        $em  = "Niveau d'études requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($email_address)) {
-        $em  = "Email address is required";
+        $em  = "Adresse E-mail requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($gender)) {
-        $em  = "Gender address is required";
+        $em  = "Genre requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($date_of_birth)) {
-        $em  = "Date of birth address is required";
+        $em  = "Date de naissance requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else if (empty($pass)) {
-        $em  = "Password is required";
+        $em  = "Mot de passe requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
     }else {
@@ -114,7 +114,7 @@ if (isset($_POST['fname']) &&
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../teacher-add.php?error=$em");
     exit;
   }

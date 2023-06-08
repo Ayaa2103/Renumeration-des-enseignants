@@ -50,47 +50,47 @@ if (isset($_POST['fname'])      &&
     $data = 'teacher_id='.$teacher_id;
 
     if (empty($fname)) {
-		$em  = "First name is required";
+		$em  = "Prénom requis !";
 		header("Location: ../teacher-edit.php?error=$em&$data");
 		exit;
 	}else if (empty($lname)) {
-		$em  = "Last name is required";
+		$em  = "Nom requis !";
 		header("Location: ../teacher-edit.php?error=$em&$data");
 		exit;
 	}else if (empty($uname)) {
-		$em  = "Username is required";
+		$em  = "Nom d'utilisateur requis !";
 		header("Location: ../teacher-edit.php?error=$em&$data");
 		exit;
 	}else if (!unameIsUnique($uname, $conn, $teacher_id)) {
-		$em  = "Username is taken! try another";
+		$em  = "Essayer un autre !";
 		header("Location: ../teacher-edit.php?error=$em&$data");
 		exit;
 	}else if (empty($address)) {
-        $em  = "Address is required";
+        $em  = "Adresse de domicile requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($employee_number)) {
-        $em  = "Employee number is required";
+        $em  = "Numéro ID requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($phone_number)) {
-        $em  = "Phone number is required";
+        $em  = "Numéro de téléphone requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($qualification)) {
-        $em  = "Qualification is required";
+        $em  = "Niveau d'études requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($email_address)) {
-        $em  = "Email address is required";
+        $em  = "Adresse E-mail requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($gender)) {
-        $em  = "Gender address is required";
+        $em  = "Genre requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else if (empty($date_of_birth)) {
-        $em  = "Date of birth address is required";
+        $em  = "Date de naissance requis !";
         header("Location: ../teacher-edit.php?error=$em&$data");
         exit;
     }else {
@@ -100,13 +100,13 @@ if (isset($_POST['fname'])      &&
                 WHERE teacher_id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$uname,  $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address,        $teacher_id]);
-        $sm = "successfully updated!";
+        $sm = "Mise a jour avec succès !!";
         header("Location: ../teacher-edit.php?success=$sm&$data");
         exit;
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../teacher.php?error=$em");
     exit;
   }
