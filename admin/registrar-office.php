@@ -13,10 +13,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Registrar Office</title>
+	<title>Admin -Comptable-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../G.S (1).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -27,7 +27,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="registrar-office-add.php"
-           class="btn btn-dark">Add New User</a>
+           class="btn btn-dark">Ajouter comptable</a>
 
            <?php if (isset($_GET['error'])) { ?>
             <div class="alert alert-danger mt-3 n-table" 
@@ -49,10 +49,10 @@ if (isset($_SESSION['admin_id']) &&
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Nom d'utilisateur</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -67,9 +67,9 @@ if (isset($_SESSION['admin_id']) &&
                     <td><?=$r_user['username']?></td>
                     <td>
                         <a href="registrar-office-edit.php?r_user_id=<?=$r_user['r_user_id']?>"
-                           class="btn btn-warning">Edit</a>
+                           class="btn btn-warning">Modifier</a>
                         <a href="registrar-office-delete.php?r_user_id=<?=$r_user['r_user_id']?>"
-                           class="btn btn-danger">Delete</a>
+                           class="btn btn-danger">Supprimer</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -79,7 +79,7 @@ if (isset($_SESSION['admin_id']) &&
          <?php }else{ ?>
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
-                Empty!
+                Vide!
               </div>
          <?php } ?>
      </div>

@@ -31,10 +31,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Add Registrar Office</title>
+	<title>Admin - Ajouter comptable</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../G.S (1).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -44,12 +44,12 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="registrar-office.php"
-           class="btn btn-dark">Go Back</a>
+           class="btn btn-dark">Revenir</a>
 
         <form method="post"
               class="shadow p-3 mt-5 form-w" 
               action="req/registrar-office-add.php">
-        <h3>Add New Registrar Office User</h3><hr>
+        <h3>Ajouter un comptable</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
            <?=$_GET['error']?>
@@ -61,93 +61,91 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">First name</label>
+          <label class="form-label">Prenom</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$fname?>" 
                  name="fname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Last name</label>
+          <label class="form-label">Nom</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$lname?>"
                  name="lname">
         </div>
         <div class="mb-3">
-          <label class="form-label">Username</label>
+          <label class="form-label">Nom d'utilisateur</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$uname?>"
                  name="username">
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
+          <label class="form-label">Mot de passe</label>
           <div class="input-group mb-3">
               <input type="text" 
                      class="form-control"
                      name="pass"
                      id="passInput">
-              <button class="btn btn-secondary"
-                      id="gBtn">
-                      Random</button>
+              
           </div>
           
         </div>
         <div class="mb-3">
-          <label class="form-label">Address</label>
+          <label class="form-label">Adresse</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$address?>"
                  name="address">
         </div>
         <div class="mb-3">
-          <label class="form-label">employee Number</label>
+          <label class="form-label">Numero ID</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$en?>"
                  name="employee_number">
         </div>
         <div class="mb-3">
-          <label class="form-label">Phone Number</label>
+          <label class="form-label">Numero de telephone</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$pn?>"
                  name="phone_number">
         </div>
         <div class="mb-3">
-          <label class="form-label">Qualification</label>
+          <label class="form-label">Niveau d'etudes</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$qf?>"
                  name="qualification">
         </div>
         <div class="mb-3">
-          <label class="form-label">Email Address</label>
+          <label class="form-label">Adresse Email</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$email?>"
                  name="email_address">
         </div>
         <div class="mb-3">
-          <label class="form-label">Gender</label><br>
+          <label class="form-label">Genre</label><br>
           <input type="radio"
                  value="Male"
                  checked 
-                 name="gender"> Male
+                 name="gender"> Homme
                  &nbsp;&nbsp;&nbsp;&nbsp;
           <input type="radio"
                  value="Female"
-                 name="gender"> Female
+                 name="gender"> Femme
         </div>
         <div class="mb-3">
-          <label class="form-label">Date of Birth</label>
+          <label class="form-label">Date de naissance</label>
           <input type="date" 
                  class="form-control"
                  value=""
                  name="date_of_birth">
         </div>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
      </form>
      </div>
      

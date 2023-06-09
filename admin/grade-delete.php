@@ -10,11 +10,11 @@ if (isset($_SESSION['admin_id']) &&
 
      $id = $_GET['grade_id'];
      if (removeGrade($id, $conn)) {
-     	$sm = "Successfully deleted!";
+     	$sm = "Supprimé avec succès !!";
         header("Location: grade.php?success=$sm");
         exit;
      }else {
-        $em = "Unknown error occurred";
+        $em = "Une erreur est survenue !";
         header("Location: grade.php?error=$em");
         exit;
      }

@@ -21,19 +21,19 @@ if (isset($_POST['course_name']) &&
     $data = 'course_id='.$course_id;
 
     if (empty($course_id)) {
-        $em  = "course id is required";
+        $em  = "Cours ID requis !";
         header("Location: ../course-edit.php?error=$em&$data");
         exit;
     }else if (empty($grade)) {
-        $em  = "Grade is required";
+        $em  = "Niveau requis !";
         header("Location: ../course-edit.php?error=$em&$data");
         exit;
     }else if (empty($course_name)) {
-        $em  = "Course name is required";
+        $em  = "Nom du cours requis !";
         header("Location: ../course-edit.php?error=$em&$data");
         exit;
     }else if (empty($course_code)) {
-        $em  = "Course code is required";
+        $em  = "Code du cours requis !";
         header("Location: ../course-edit.php?error=$em&$data");
         exit;
     }else {
@@ -49,12 +49,12 @@ if (isset($_POST['course_name']) &&
                      WHERE subject_id=?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$course_name, $course_code, $grade, $course_id]);
-                $sm = "Course updated successfully";
+                $sm = "Mise a jour avec succès";
                 header("Location: ../course-edit.php?success=$sm&$data");
                 exit;
 
              }else {
-                 $em  = "The course is already exists";
+                 $em  = "Cours déja existant !";
                  header("Location: ../course-edit.php?error=$em&$data");
                  exit;
             }

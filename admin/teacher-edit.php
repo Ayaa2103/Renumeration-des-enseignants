@@ -183,7 +183,10 @@ if (isset($_SESSION['admin_id']) &&
                      name="classes[]"
                      <?php if($checked) echo "checked"; ?>
                      value="<?=$grade['grade_id']?>">
-                     <?=$grade['grade_code']?>-<?=$grade['grade']?>
+                     <?php if (isset($grade['grade_code']) && isset($grade['grade'])) { ?>
+    <?=$grade['grade_code']?>-<?=$grade['grade']?>
+<?php } ?>
+
             </div>
             <?php } ?>
              

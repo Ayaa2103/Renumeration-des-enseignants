@@ -13,10 +13,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Setting</title>
+	<title>Admin - Parametres</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../G.S.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -29,7 +29,7 @@ if (isset($_SESSION['admin_id']) &&
         <form method="post"
               class="shadow p-3 mt-5 form-w" 
               action="req/setting-edit.php">
-        <h3>Edit</h3><hr>
+        <h3>Modifier</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
            <?=$_GET['error']?>
@@ -41,33 +41,33 @@ if (isset($_SESSION['admin_id']) &&
           </div>
         <?php } ?>
         <div class="mb-3">
-          <label class="form-label">School Name</label>
+          <label class="form-label">Nom de l'application</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$setting['school_name']?>" 
                  name="school_name">
         </div>
         <div class="mb-3">
-          <label class="form-label">Slogan</label>
+          <label class="form-label">Introduction</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$setting['slogan']?>" 
                  name="slogan">
         </div>
         <div class="mb-3">
-                <label class="form-label">About</label>
+                <label class="form-label">A propos</label>
                 <textarea class="form-control" name="about"
                           rows="4"><?=$setting['about']?></textarea>
         </div>
         <div class="mb-3">
-          <label class="form-label">Current Year</label>
+          <label class="form-label">l'année courante</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$setting['current_year']?>" 
                  name="current_year">
         </div>
         <div class="mb-3">
-          <label class="form-label">Current Semester</label>
+          <label class="form-label">Semestre courant</label>
           <input type="text" 
                  class="form-control"
                  value="<?=$setting['current_semester']?>"
@@ -75,7 +75,7 @@ if (isset($_SESSION['admin_id']) &&
         </div>
       <button type="submit" 
               class="btn btn-primary">
-              Update</button>
+              Mise a jour</button>
      </form>
  </div>
      

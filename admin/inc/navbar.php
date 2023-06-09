@@ -29,10 +29,13 @@
           <a class="nav-link" href="course.php">Cours</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="grade.php">Niveaux</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="message.php">Message</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Statistiques</a>
+          <a class="nav-link" href="statistics.html">Statistiques</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="settings.php">Paramètres</a>

@@ -15,11 +15,11 @@ if (isset($_POST['grade']) &&
     $grade = $_POST['grade'];
 
   if (empty($section)) {
-		$em  = "Section is required";
+		$em  = "Section requis !";
 		header("Location: ../class-add.php?error=$em");
 		exit;
 	}else if (empty($grade)) {
-		$em  = "Grade is required";
+		$em  = "Niveau requis !";
 		header("Location: ../class-add.php?error=$em");
 		exit;
 	}else {
@@ -29,7 +29,7 @@ if (isset($_POST['grade']) &&
         $stmt_check = $conn->prepare($sql_check);
         $stmt_check->execute([$grade, $section]);
         if ($stmt_check->rowCount() > 0) {
-           $em  = "The class already exists";
+           $em  = "Classe déja existante !";
            header("Location: ../class-add.php?error=$em");
            exit;
         }else {
@@ -38,14 +38,14 @@ if (isset($_POST['grade']) &&
                  VALUES(?,?)";
           $stmt = $conn->prepare($sql);
           $stmt->execute([$grade, $section]);
-          $sm = "New class created successfully";
+          $sm = "Nouveau classe ajouté avec succès !";
           header("Location: ../class-add.php?success=$sm");
           exit;
         } 
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../class-add.php?error=$em");
     exit;
   }

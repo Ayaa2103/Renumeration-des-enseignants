@@ -38,70 +38,64 @@ if (isset($_POST['fname']) &&
     $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
 
     if (empty($fname)) {
-		$em  = "First name is required";
+		$em  = "Prenom requis !";
 		header("Location: ../registrar-office-add.php?error=$em&$data");
 		exit;
 	}else if (empty($lname)) {
-		$em  = "Last name is required";
+		$em  = "Nom requis !";
 		header("Location: ../registrar-office-add.php?error=$em&$data");
 		exit;
 	}else if (empty($uname)) {
-		$em  = "Username is required";
+		$em  = "Nom d'utilisateur requis !";
 		header("Location: ../registrar-office-add.php?error=$em&$data");
 		exit;
-	}else if (!unameIsUnique($uname, $conn)) {
-		$em  = "Username is taken! try another";
-		header("Location: ../registrar-office-add.php?error=$em&$data");
-		exit;
-	}else if (empty($pass)) {
-		$em  = "Password is required";
+	}else if (!unameIsUnique($uname, $conn, $r_user_id)) {
+		$em  = "Essayez un autre !";
 		header("Location: ../registrar-office-add.php?error=$em&$data");
 		exit;
 	}else if (empty($address)) {
-        $em  = "Address is required";
+        $em  = "Adresse requis !";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($employee_number)) {
-        $em  = "Employee number is required";
+        $em  = "Numero ID requis !";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($phone_number)) {
-        $em  = "Phone number is required";
+        $em  = "Numero de telephone requis !";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($qualification)) {
-        $em  = "Qualification is required";
+        $em  = "Niveau d'etudes requis !";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($email_address)) {
-        $em  = "Email address is required";
+        $em  = "Adresse Email requis";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($gender)) {
-        $em  = "Gender address is required";
+        $em  = "Genre requis !";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else if (empty($date_of_birth)) {
-        $em  = "Date of birth address is required";
+        $em  = "Date de naissance requis";
         header("Location: ../registrar-office-add.php?error=$em&$data");
         exit;
     }else {
-        // hashing the password
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
-
-        $sql  = "INSERT INTO
-                 registrar_office(username, password, fname, lname, address, employee_number, date_of_birth, phone_number, qualification, gender, email_address)
-                 VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "UPDATE registrar_office SET
+                username = ?, fname=?, lname=?,
+                address = ?, employee_number=?, date_of_birth = ?, phone_number = ?, qualification = ?,gender=?, email_address = ?
+                WHERE r_user_id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname, $pass, $fname, $lname, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address]);
-        $sm = "New teacher registered successfully";
-        header("Location: ../teacher-add.php?success=$sm");
+        $stmt->execute([$uname, $fname, $lname, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $r_user_id]);
+        $sm = "Mise a jour avec succès !";
+        header("Location: ../registrar-office-edit.php?success=$sm&$data");
         exit;
 	}
     
   }else {
-  	$em = "An error occurred";
-    header("Location: ../registrar-office-add.php?error=$em");
+  	$em = "Une erreur est survenu !";
+    header("Location: ../registrar-office.php?error=$em");
     exit;
   }
 

@@ -17,11 +17,11 @@ if (isset($_POST['grade_code']) &&
     $data = 'grade_code='.$grade_code.'&grade='.$grade;
 
   if (empty($grade_code)) {
-		$em  = "Grade Code is required";
+		$em  = "Code requis !";
 		header("Location: ../grade-add.php?error=$em&$data");
 		exit;
 	}else if (empty($grade)) {
-		$em  = "Grade is required";
+		$em  = "Niveau requis !";
 		header("Location: ../grade-add.php?error=$em&$data");
 		exit;
 	}else {
@@ -30,13 +30,13 @@ if (isset($_POST['grade_code']) &&
                  VALUES(?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$grade, $grade_code]);
-        $sm = "New Grade created successfully";
+        $sm = "Nouveau niveau crée !";
         header("Location: ../grade-add.php?success=$sm");
         exit;
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../grade-add.php?error=$em");
     exit;
   }

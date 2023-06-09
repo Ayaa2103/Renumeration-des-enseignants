@@ -16,7 +16,7 @@
 	min-height: 80vh;
 }
 .welcome-text img {
-	width: 200px;
+	width: 100px;
 }
 .welcome-text h4 {
 	color: #eee;
@@ -89,3 +89,4 @@ textarea {
 	max-width: 600px;
 	width: 100%;
 }
+

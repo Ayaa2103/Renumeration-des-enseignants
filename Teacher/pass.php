@@ -10,10 +10,10 @@ if (isset($_SESSION['teacher_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Teacher - Change Password</title>
+	<title>Enseignant -Changer le mot de passe-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../G.S.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -26,7 +26,7 @@ if (isset($_SESSION['teacher_id']) &&
               class="shadow p-3 my-5 form-w" 
               action="req/teacher-change.php"
               id="change_password">
-        <h3>Change Password</h3><hr>
+        <h3>Changer le mot de passe</h3><hr>
           <?php if (isset($_GET['perror'])) { ?>
             <div class="alert alert-danger" role="alert">
              <?=$_GET['perror']?>
@@ -40,27 +40,25 @@ if (isset($_SESSION['teacher_id']) &&
 
        <div class="mb-3">
             <div class="mb-3">
-            <label class="form-label">Old password</label>
+            <label class="form-label">Ancien mot de passe</label>
                 <input type="password" 
                        class="form-control"
                        name="old_pass"> 
           </div>
 
-            <label class="form-label">New password </label>
+            <label class="form-label">Nouveau mot de passe</label>
             <div class="input-group mb-3">
                 <input type="text" 
                        class="form-control"
                        name="new_pass"
                        id="passInput">
-                <button class="btn btn-secondary"
-                        id="gBtn">
-                        Random</button>
+                
             </div>
             
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Confirm new password  </label>
+            <label class="form-label">Confirmer le mot de passe  </label>
                 <input type="text" 
                        class="form-control"
                        name="c_new_pass"
@@ -68,7 +66,7 @@ if (isset($_SESSION['teacher_id']) &&
           </div>
           <button type="submit" 
               class="btn btn-primary">
-              Change</button>
+              Changer</button>
         </form>
      </div>
     

@@ -17,15 +17,15 @@ if (isset($_POST['course_name']) &&
     $grade = $_POST['grade'];
 
   if (empty($course_name)) {
-		$em  = "course name is required";
+		$em  = "Nom requis !";
 		header("Location: ../course-add.php?error=$em");
 		exit;
 	}else if(empty($course_code)) {
-    $em  = "course code is required";
+    $em  = "Code du cours requis !";
     header("Location: ../course-add.php?error=$em");
     exit;
   }else if (empty($grade)) {
-		$em  = "Grade is required";
+		$em  = "Niveau requis !";
 		header("Location: ../course-add.php?error=$em");
 		exit;
 	}else {
@@ -35,7 +35,7 @@ if (isset($_POST['course_name']) &&
         $stmt_check = $conn->prepare($sql_check);
         $stmt_check->execute([$grade, $course_code]);
         if ($stmt_check->rowCount() > 0) {
-           $em  = "The course is already exists";
+           $em  = "Le cours existe déja !";
            header("Location: ../course-add.php?error=$em");
            exit;
         }else {
@@ -44,14 +44,14 @@ if (isset($_POST['course_name']) &&
                  VALUES(?,?,?)";
           $stmt = $conn->prepare($sql);
           $stmt->execute([$grade, $course_name, $course_code]);
-          $sm = "New course created successfully";
+          $sm = "Créé avec succès !";
           header("Location: ../course-add.php?success=$sm");
           exit;
         } 
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenu !";
     header("Location: ../course-add.php?error=$em");
     exit;
   }

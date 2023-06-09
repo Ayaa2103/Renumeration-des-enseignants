@@ -23,23 +23,23 @@ if (isset($_POST['school_name']) &&
    
 
     if (empty($school_name)) {
-        $em  = "School name is required";
+        $em  = "Nom d'application requis !";
         header("Location: ../settings.php?error=$em");
         exit;
     }else if (empty($slogan)) {
-        $em  = "Slogan name is required";
+        $em  = "Introduction requis !";
         header("Location: ../settings.php?error=$em");
         exit;
     }else if (empty($about)) {
-        $em  = "About name is required";
+        $em  = "saisir le champ A propos ! ";
         header("Location: ../settings.php?error=$em");
         exit;
     }else if (empty($current_year)) {
-        $em  = "Current year name is required";
+        $em  = "Année courrante requise !";
         header("Location: ../settings.php?error=$em");
         exit;
     }else if (empty($current_semester)) {
-        $em  = "Current semester name is required";
+        $em  = "Semestre courant requis !";
         header("Location: ../settings.php?error=$em");
         exit;
     }else {
@@ -53,13 +53,13 @@ if (isset($_POST['school_name']) &&
                  WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$current_year, $current_semester, $school_name, $slogan, $about, $id]);
-        $sm = "Settings updated successfully";
+        $sm = "Mise a jour avec succès !";
         header("Location: ../settings.php?success=$sm&$data");
         exit;
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est survenue";
     header("Location: ../section.php?error=$em");
     exit;
   }

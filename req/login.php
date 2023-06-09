@@ -12,15 +12,15 @@ if (isset($_POST['uname']) &&
 	$role = $_POST['role'];
 
 	if (empty($uname)) {
-		$em  = "Username is required";
+		$em  = "Nom utilisateur requis !";
 		header("Location: ../login.php?error=$em");
 		exit;
 	}else if (empty($pass)) {
-		$em  = "Password is required";
+		$em  = "Mot de passe requis !";
 		header("Location: ../login.php?error=$em");
 		exit;
 	}else if (empty($role)) {
-		$em  = "An error Occurred";
+		$em  = "Une erreur est survenue!";
 		header("Location: ../login.php?error=$em");
 		exit;
 	}else {
@@ -75,23 +75,23 @@ if (isset($_POST['uname']) &&
                         header("Location: ../Teacher/index.php");
                         exit;
                     }else {
-                    	$em  = "Incorrect Username or Password";
+                    	$em  = "Mot de passe ou nom d'utilisateur incorrects";
 				        header("Location: ../login.php?error=$em");
 				        exit;
                     }
 				    
             	}else {
-		        	$em  = "Incorrect Username or Password";
+		        	$em  = "Mot de passe ou nom d'utilisateur incorrects";
 				    header("Location: ../login.php?error=$em");
 				    exit;
 		        }
             }else {
-	        	$em  = "Incorrect Username or Password";
+	        	$em  = "Mot de passe ou nom d'utilisateur incorrects";
 			    header("Location: ../login.php?error=$em");
 			    exit;
 	        }
         }else {
-        	$em  = "Incorrect Username or Password";
+        	$em  = "Mot de passe ou nom d'utilisateur incorrects";
 		    header("Location: ../login.php?error=$em");
 		    exit;
         }

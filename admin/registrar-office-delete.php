@@ -10,11 +10,11 @@ if (isset($_SESSION['admin_id']) &&
 
      $id = $_GET['r_user_id'];
      if (removeRUser($id, $conn)) {
-     	$sm = "Successfully deleted!";
+     	$sm = "Supprimé avec succès!";
         header("Location: registrar-office.php?success=$sm");
         exit;
      }else {
-        $em = "Unknown error occurred";
+        $em = "Une erreur est survenu !";
         header("Location: registrar-office.php?error=$em");
         exit;
      }

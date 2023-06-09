@@ -29,6 +29,7 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-user-md fs-1" aria-hidden="true"></i><br>
                   Enseignants
                </a> 
+              
                 
                <a href="registrar-office.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-pencil-square fs-1" aria-hidden="true"></i><br>
@@ -36,7 +37,7 @@ if (isset($_SESSION['admin_id']) &&
                </a> 
                <a href="class.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
-                  Class
+                  Classes
                </a> 
                
                
@@ -44,11 +45,15 @@ if (isset($_SESSION['admin_id']) &&
                  <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
                   Cours
                </a> 
+               <a href="grade.php" class="col btn btn-dark m-2 py-3">
+                 <i class="fa fa-level-up fs-1" aria-hidden="true"></i><br>
+                  Niveaux
+               </a> 
                <a href="message.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
                   Message
                </a> 
-               <a href="" class="col btn btn-dark m-2 py-3">
+               <a href="statistics.html" class="col btn btn-dark m-2 py-3">
                <i class="fa fa-bar-chart fs-1" aria-hidden="true"></i><br>
                 Statistiques
                </a>

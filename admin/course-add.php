@@ -14,10 +14,10 @@ if (isset($_SESSION['admin_id']) &&
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Add Course</title>
+	<title>Admin - Ajouter cours-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-	<link rel="icon" href="../logo.png">
+	<link rel="icon" href="../G.S.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -27,10 +27,10 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <a href="course.php"
-           class="btn btn-dark">Go Back</a> <br><br>
+           class="btn btn-dark">Revenir</a> <br><br>
         <?php if ($grades == 0) { ?>
           <div class="alert alert-info" role="alert">
-           First create grade.
+           Créez un niveau d'abord !!
           </div>
         <?php }else{ ?>
 
@@ -38,7 +38,7 @@ if (isset($_SESSION['admin_id']) &&
               class="shadow p-3 mt-5 form-w" 
               action="req/course-add.php">
 
-        <h3>Add New Course</h3><hr>
+        <h3>Ajouter un nouveau cours</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
            <?=$_GET['error']?>
@@ -51,19 +51,19 @@ if (isset($_SESSION['admin_id']) &&
         <?php } ?>
         
         <div class="mb-3">
-          <label class="form-label">Course Name</label>
+          <label class="form-label">Nom du cours</label>
           <input type="text" 
                  class="form-control"
                  name="course_name">
         </div>
         <div class="mb-3">
-          <label class="form-label">Course Code</label>
+          <label class="form-label">Code du cours</label>
           <input type="text" 
                  class="form-control"
                  name="course_code">
         </div>
         <div class="mb-3">
-          <label class="form-label">Grade</label>
+          <label class="form-label">Niveau</label>
           <select name="grade"
                   class="form-control" >
                   <?php foreach ($grades as $grade) { ?>
@@ -74,7 +74,7 @@ if (isset($_SESSION['admin_id']) &&
                   
           </select>
         </div>
-      <button type="submit" class="btn btn-primary">Create</button>
+      <button type="submit" class="btn btn-primary">Créer</button>
      </form>
      </div>
      <?php } ?>

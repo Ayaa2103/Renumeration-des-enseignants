@@ -19,15 +19,15 @@ if (isset($_POST['section']) &&
     $data = 'class_id='.$class_id;
 
     if (empty($class_id)) {
-        $em  = "Class id is required";
+        $em  = "Classe ID requis !";
         header("Location: ../class-edit.php?error=$em&$data");
         exit;
     }else if (empty($grade)) {
-        $em  = "Grade is required";
+        $em  = "Niveau requis !";
         header("Location: ../class-edit.php?error=$em&$data");
         exit;
     }else if (empty($section)) {
-        $em  = "Section is required";
+        $em  = "Section requis !";
         header("Location: ../class-edit.php?error=$em&$data");
         exit;
     }else {
@@ -37,7 +37,7 @@ if (isset($_POST['section']) &&
         $stmt_check = $conn->prepare($sql_check);
         $stmt_check->execute([$grade, $section]);
         if ($stmt_check->rowCount() > 0) {
-           $em  = "The class already exists";
+           $em  = "Classe déja existante !";
            header("Location: ../class-edit.php?error=$em&$data");
            exit;
         }else {
@@ -46,14 +46,14 @@ if (isset($_POST['section']) &&
                      WHERE class_id=?";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$grade, $section, $class_id]);
-            $sm = "Class updated successfully";
+            $sm = "Mise a jour avec succès";
             header("Location: ../class-edit.php?success=$sm&$data");
             exit;
        }
 	}
     
   }else {
-  	$em = "An error occurred";
+  	$em = "Une erreur est requis !";
     header("Location: ../class.php?error=$em");
     exit;
   }
