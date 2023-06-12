@@ -28,7 +28,7 @@ if (isset($_SESSION['r_user_id']) &&
                   Calculs de salaires
                </a> 
 
-               <a href="student.php" class="col btn btn-dark m-2 py-3">
+               <a href="../admin/teacher.php" class="col btn btn-dark m-2 py-3">
                  <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
                   Tous les enseignants
                </a> 
