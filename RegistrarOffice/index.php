@@ -22,7 +22,7 @@ if (isset($_SESSION['r_user_id']) &&
      <div class="container mt-5">
          <div class="container text-center">
              <div class="row row-cols-5">
-               <a href="calcul-salaire.php" 
+               <a href="salaireCalcul.php" 
                   class="col btn btn-dark m-2 py-2">
                  <i class="fa fa-user-plus fs-1" aria-hidden="true"></i><br>
                   Calculs de salaires
