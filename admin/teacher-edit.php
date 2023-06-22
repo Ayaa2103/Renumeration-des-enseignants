@@ -117,6 +117,21 @@ if (isset($_SESSION['admin_id']) &&
                  name="qualification">
         </div>
         <div class="mb-3">
+          <label class="form-label">Salaire</label>
+          <input type="number" 
+                 class="form-control"
+                 value="<?=$teacher['salary']?>"
+                 name="salary">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Taux horaire</label>
+          <input type="number" 
+                 class="form-control"
+                 value="<?=$teacher['taux_horaire']?>"
+                 name="taux_horaire">
+        </div>
+        
+        <div class="mb-3">
           <label class="form-label">Adresse E-mail</label>
           <input type="text" 
                  class="form-control"

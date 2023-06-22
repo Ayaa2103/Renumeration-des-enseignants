@@ -15,6 +15,8 @@ if (isset($_POST['fname']) &&
     isset($_POST['phone_number'])  &&
     isset($_POST['qualification']) &&
     isset($_POST['email_address']) &&
+    isset($_POST['salary']) &&
+    isset($_POST['taux_horaire']) &&
     isset($_POST['classes'])        &&
     isset($_POST['date_of_birth']) &&
     isset($_POST['subjects'])) {
@@ -33,6 +35,8 @@ if (isset($_POST['fname']) &&
     $qualification = $_POST['qualification'];
     $email_address = $_POST['email_address'];
     $gender = $_POST['gender'];
+    $salary = $_POST['salary'];
+    $taux_horaire = $_POST['taux_horaire'];
     $date_of_birth = $_POST['date_of_birth'];
 
     $classes = "";
@@ -45,7 +49,7 @@ if (isset($_POST['fname']) &&
     	$subjects .=$subject;
     }
 
-    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
+    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification. '&salary='.$salary. '&taux_horaire='.$taux_horaire.'&email='.$email_address;
 
     if (empty($fname)) {
 		$em  = "Prénom requis !";
@@ -83,6 +87,14 @@ if (isset($_POST['fname']) &&
         $em  = "Niveau d'études requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
         exit;
+    }else if (empty($salary)) {
+        $em  = "Salaire  requis !";
+        header("Location: ../teacher-add.php?error=$em&$data");
+        exit;
+    }else if (empty($taux_horaire)) {
+        $em  = "Taux horaire requis !";
+        header("Location: ../teacher-add.php?error=$em&$data");
+        exit;
     }else if (empty($email_address)) {
         $em  = "Adresse E-mail requis !";
         header("Location: ../teacher-add.php?error=$em&$data");
@@ -104,11 +116,11 @@ if (isset($_POST['fname']) &&
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
         $sql  = "INSERT INTO
-                 teachers(username, password, class, fname, lname, subjects, address, employee_number, date_of_birth, phone_number, qualification, gender, email_address)
-                 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                 teachers(username, password, class, fname, lname, subjects, address, employee_number, date_of_birth, phone_number, qualification, salary, taux_horaire, gender, email_address)
+                 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address]);
-        $sm = "New teacher registered successfully";
+        $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $salary, $taux_horaire, $gender, $email_address]);
+        $sm = "Ajout avec succès !";
         header("Location: ../teacher-add.php?success=$sm");
         exit;
 	}

@@ -11,6 +11,8 @@ if (isset($_SESSION['admin_id']) &&
        include "data/teacher.php";
        include "data/subject.php";
        include "data/grade.php";
+       include "data/class.php";
+       include "data/section.php";
        $teachers = searchTeachers($search_key, $conn);
  ?>
 <!DOCTYPE html>
@@ -76,6 +78,8 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">Nom d'utilisateur</th>
                     <th scope="col">Matières</th>
                     <th scope="col">Classes</th>
+                    <th scope="col">Salaire</th>
+                    <th scope="col">Taux horaire</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -101,19 +105,29 @@ if (isset($_SESSION['admin_id']) &&
                            echo $s;
                         ?>
                     </td>
+                    
                     <td>
-                      <?php 
-                           $g = '';
-                           $grades = str_split(trim($teacher['grades']));
-                           foreach ($grades as $grade) {
-                              $g_temp = getGradeById($grade, $conn);
-                              if ($g_temp != 0) 
-                                $g .=$g_temp['grade_code'].'-'.
-                                     $g_temp['grade'].', ';
+                    <?php 
+                           $c = '';
+                           $classes = str_split(trim($teacher['class']));
+
+                           foreach ($classes as $class_id) {
+                            
+                               $class = getClassById($class_id, $conn);
+
+                              $c_temp = getGradeById($class['grade'], $conn);
+                              $section = getSectioById($class['section'], $conn);
+                              if ($c_temp != 0) 
+                                $c .=$c_temp['grade_code'].'-'.
+                                     $c_temp['grade'].$section['section'].', ';
                            }
-                           echo $g;
+                           
+                           echo $c;
+
                         ?>
                     </td>
+                    <td><?=$teacher['salary']?></td>
+                    <td><?=$teacher['taux_horaire']?></td>
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Modifier</a>

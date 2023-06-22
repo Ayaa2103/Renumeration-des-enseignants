@@ -19,34 +19,21 @@ if (isset($_SESSION['r_user_id']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Comptable - Enseignants</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style2.css">
 	<link rel="icon" href="../G.S (2).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-é">
-          <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
-           Se déconnecter
-    </a> 
+   
     <?php 
+    include "inc/navbar.php";
         if ($teachers != 0) {
+          
      ?>
+     
 
-           <form action="teacher-search.php" 
-                 class="mt-3 n-table"
-                 method="get">
-             <div class="input-group mb-3">
-                <input type="text" 
-                       class="form-control"
-                       name="searchKey"
-                       placeholder="Rechercher..">
-                <button class="btn btn-primary">
-                        <i class="fa fa-search" 
-                           aria-hidden="true"></i>
-                      </button>
-             </div>
-           </form>
+           
 
            <?php if (isset($_GET['error'])) { ?>             <!--Rechercher sa partie dans le code-->
             <div class="alert alert-danger mt-3 n-table" 
@@ -61,6 +48,8 @@ if (isset($_SESSION['r_user_id']) &&
               <?=$_GET['success']?>
             </div>
             <?php } ?>
+            
+           
 
            <div class="table-responsive">
               <table class="table table-bordered mt-3 n-table">
@@ -73,6 +62,7 @@ if (isset($_SESSION['r_user_id']) &&
                     <th scope="col">Nom d'utilisateur</th>
                     <th scope="col">Matières</th>
                     <th scope="col">Classes</th>
+                    <th scope="col">Taux horaire(DH)</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -118,6 +108,7 @@ if (isset($_SESSION['r_user_id']) &&
 
                         ?>
                     </td>
+                    <td><?=$teacher['taux_horaire']?></td>
                     <td>
                         <a href="calcul-salaire.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Calculer le salaire</a>
@@ -134,6 +125,10 @@ if (isset($_SESSION['r_user_id']) &&
               </div>
          <?php } ?>
      </div>
+     <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-é">
+          <i class="fa fa-sign-out fs-3" aria-hidden="true"></i><br>
+           Se déconnecter
+    </a> 
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>

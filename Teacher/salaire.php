@@ -15,6 +15,8 @@ if (isset($_SESSION['teacher_id']) &&
        $teacher_id = $_SESSION['teacher_id'];
        $teacher = getTeacherById($teacher_id, $conn);
        $salaire = getSalaryById($teacher_id, $conn);
+       $numberHours = getNumberOfHoursById($teacher_id, $conn);
+       $taux_horaire = gettauxhoraireById($teacher_id, $conn);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ if (isset($_SESSION['teacher_id']) &&
 <head>
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Enseignant -Changer le mot de passe-</title>
+	<title>Enseignant -statut salaire-</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="icon" href="../G.S.png">
@@ -31,11 +33,11 @@ if (isset($_SESSION['teacher_id']) &&
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 700;
-            font-size: 1em;
-            background-color: white;
-                background-size: cover;
-                background-position: center;
+            font-weight: 500;
+            font-size: 1.3em;
+            background-image: url(../img/image.png);
+            background-size: cover;
+            background-attachment: fixed;
             margin: 0px auto;
             padding: 0px;
             position: relative;
@@ -45,68 +47,33 @@ if (isset($_SESSION['teacher_id']) &&
             background-color: rgba(0, 0, 0, 0.7);
             
             border: 1px solid #ccc;
-            padding: 10px;
-            margin: 100px auto;
-            max-width: 800px;
+            padding: 19px;
+            margin: 180px auto;
+            max-width: 900px;
             text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             color: #fff;
         }
 
         .releve-salaire h2 {
             margin: 3;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 1em;
+            font-size: 1.2em;
         }
 
         .releve-salaire hr {
             border: none;
-            border-top: 1px solid #ccc;
-            margin: 10px 0;
+            border-top: 2px solid #ccc;
+            margin: 18px 0;
         }
 
         .montant {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
         }
 
-        .deductions-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-
-        .deductions-menu li {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .deductions-menu li span {
-            display: inline-block;
-            width: 200px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .deductions-details {
-            display: none;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: #f9f9f9;
-            text-align: left;
-        }
-
-        .deductions-details p {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .print-button {
+         .print-button {
             display: block;
             margin-top: 20px;
             margin-left: 39%;
@@ -163,7 +130,10 @@ if (isset($_SESSION['teacher_id']) &&
     <div class="releve-salaire">
         <h2>Relevé de salaire de l'enseignant :</h2>
         <hr>
-        <p>Salaire : <span class="montant"><?php echo $salaire[0]; ?>Dh</span></p>
+        <p>Salaire net : <span class="montant"><?php echo $salaire[0]; ?>Dh</span></p>
+        <p>Taux horaire : <span class="montant"><?php echo $taux_horaire[0]; ?>Dh</span></p>
+        <p>Nombres d'heures d'enseignement : <span class="montant"><?php echo $numberHours[0]; ?> heures</span></p>
+        
         <button class="print-button" onclick="window.print()">Imprimer</button>
     </div>
 </body>

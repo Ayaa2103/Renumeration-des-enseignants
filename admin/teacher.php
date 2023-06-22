@@ -73,7 +73,8 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">Nom d'utilisateur</th>
                     <th scope="col">Matières</th>
                     <th scope="col">Classes</th>
-                    <th scope="col">Salaire</th>
+                    <th scope="col">Salaire mensuel</th>
+                    <th scope="col">Taux horaire</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -120,6 +121,7 @@ if (isset($_SESSION['admin_id']) &&
                         ?>
                     </td>
                     <td><?=$teacher['salary']?></td>
+                    <td><?=$teacher['taux_horaire']?></td>
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Modifier</a>

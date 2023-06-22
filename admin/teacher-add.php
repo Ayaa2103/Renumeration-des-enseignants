@@ -22,6 +22,8 @@ if (isset($_SESSION['admin_id']) &&
        $pn = '';
        $qf = '';
        $email = '';
+       $salary = '';
+       $taux_horaire = '';
 
        if (isset($_GET['fname'])) $fname = $_GET['fname'];
        if (isset($_GET['lname'])) $lname = $_GET['lname'];
@@ -31,6 +33,8 @@ if (isset($_SESSION['admin_id']) &&
        if (isset($_GET['pn'])) $pn = $_GET['pn'];
        if (isset($_GET['qf'])) $qf = $_GET['qf'];
        if (isset($_GET['email'])) $email = $_GET['email'];
+       if (isset($_GET['salary'])) $salary = $_GET['salary'];
+       if (isset($_GET['taux_horaire'])) $taux_horaire = $_GET['taux_horaire'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,6 +129,20 @@ if (isset($_SESSION['admin_id']) &&
                  class="form-control"
                  value="<?=$qf?>"
                  name="qualification">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Salaire:</label>
+          <input type="text" 
+                 class="form-control"
+                 value="<?=$salary?>"
+                 name="salary">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Taux horaire:</label>
+          <input type="text" 
+                 class="form-control"
+                 value="<?=$taux_horaire?>"
+                 name="taux_horaire">
         </div>
         <div class="mb-3">
           <label class="form-label">Adresse E-mail</label>

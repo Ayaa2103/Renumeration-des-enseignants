@@ -108,6 +108,19 @@ function getNumberOfHoursById($teacher_id, $conn){
    return 0;
   }
 }
+function getNumberOfAbsenceById($teacher_id, $conn){
+  $sql = "SELECT nombre_absence FROM teachers
+          WHERE teacher_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$teacher_id]);
+
+  if ($stmt->rowCount() == 1) {
+    $nombre_absence = $stmt->fetch();
+    return $nombre_absence;
+  }else {
+   return 0;
+  }
+}
 
 
 function getSalaryById($teacher_id, $conn){
@@ -119,6 +132,20 @@ function getSalaryById($teacher_id, $conn){
   if ($stmt->rowCount() == 1) {
     $numberHours = $stmt->fetch();
     return $numberHours;
+  }else {
+   return 0;
+  }
+}
+
+function gettauxhoraireById($teacher_id, $conn){
+  $sql = "SELECT taux_horaire FROM teachers
+          WHERE teacher_id=?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$teacher_id]);
+
+  if ($stmt->rowCount() == 1) {
+    $taux_horaire = $stmt->fetch();
+    return $taux_horaire;
   }else {
    return 0;
   }

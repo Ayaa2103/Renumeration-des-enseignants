@@ -14,6 +14,8 @@ if (isset($_POST['fname'])      &&
     isset($_POST['employee_number']) &&
     isset($_POST['phone_number'])  &&
     isset($_POST['qualification']) &&
+    isset($_POST['salary']) &&
+    isset($_POST['taux_horaire']) &&
     isset($_POST['email_address']) &&
     isset($_POST['gender'])        &&
     isset($_POST['date_of_birth']) &&
@@ -31,6 +33,8 @@ if (isset($_POST['fname'])      &&
     $employee_number = $_POST['employee_number'];
     $phone_number = $_POST['phone_number'];
     $qualification = $_POST['qualification'];
+    $salary = $_POST['salary'];
+    $taux_horaire = $_POST['taux_horaire'];
     $email_address = $_POST['email_address'];
     $gender = $_POST['gender'];
     $date_of_birth = $_POST['date_of_birth'];
@@ -96,10 +100,10 @@ if (isset($_POST['fname'])      &&
     }else {
         $sql = "UPDATE teachers SET
                 username = ?,class=?, fname=?, lname=?, subjects=?,
-                address = ?, employee_number=?, date_of_birth = ?, phone_number = ?, qualification = ?,gender=?, email_address = ?
+                address = ?, employee_number=?, date_of_birth = ?, phone_number = ?, qualification = ?, salary = ?, taux_horaire = ?, gender=?, email_address = ?
                 WHERE teacher_id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname,  $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address,        $teacher_id]);
+        $stmt->execute([$uname,  $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $salary, $taux_horaire, $gender, $email_address,        $teacher_id]);
         $sm = "Mise a jour avec succès !!";
         header("Location: ../teacher-edit.php?success=$sm&$data");
         exit;
