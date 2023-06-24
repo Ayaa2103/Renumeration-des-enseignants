@@ -21,6 +21,13 @@ if (isset($_SESSION['admin_id']) &&
 	<link rel="icon" href="../G.S.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body{
+    background: url(../img/v882batch2-kul-12.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+    }
+  </style>
 </head>
 <body>
     <?php 

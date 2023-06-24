@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 02:38 PM
+-- Generation Time: Jun 22, 2023 at 06:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -276,7 +276,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`teacher_id`, `username`, `password`, `class`, `fname`, `lname`, `subjects`, `address`, `employee_number`, `date_of_birth`, `phone_number`, `qualification`, `gender`, `email_address`, `date_of_joined`, `number_of_hours`, `salary`, `taux_horaire`, `nombre_absence`) VALUES
-(11, 'hamza', '$2y$10$9ThThKgryT5u0rFj/G3KLOLLchnN5ZGpJXNRJE5WBku0eVDbGoQfy', '2', 'hamza', 'tbaila', '78', 'LOT EL MAJD', 2103, '2001-02-25', '0620939321', 'Doctorat', 'Male', 'hamza.t@gmail.com', '2023-06-09 09:20:20', 80, 6000, 100, 20),
+(11, 'hamza', '$2y$10$5NhRI/gN0z3MY0NSsdHtpu7ZUhZVtZzVyHrVxESs.ldY0ptPVq.bS', '2', 'hamza', 'tbaila', '78', 'LOT EL MAJD', 2103, '2001-02-25', '0620939321', 'Doctorat', 'Male', 'hamza.t@gmail.com', '2023-06-09 09:20:20', 80, 6300, 90, 10),
 (12, 'mohamed', '$2y$10$USds8q6mCbZ1DnoEWDDLEewpJefUy.pwr4BIT.I9Rah9s6nQpqDRW', '24', 'Mohamed', 'el khouzai', '5', 'beni mellal, 12 D, Maroc', 1212, '1977-10-04', '0612131415', 'Licence', 'Male', 'mohamed.k@ou.ma', '2023-06-12 16:15:40', 90, 3000, 90, 0),
 (13, 'najat', '$2y$10$s7pvKr2WTocMr9Ty8FOm0.Hs37qv3kTNhRiBDCFJTpwP5W1gxbcCu', '2', 'najat', 'ouahidi', '2', 'Kenitra,12 C zone d\'activite Ma', 1313, '1661-01-01', '0661602527', 'Master', 'Female', 'najat.o@ou.ma', '2023-06-12 16:19:02', 70, 4500, 120, 0),
 (14, 'jihane', '$2y$10$a8WqzmaNcuoXTo5S4Uv7suVuhRO92QL0WnDIDFWlXew3I5iP9ulVq', '7', 'jihane', 'belhou', '1', 'kenitra, maroc', 1414, '1999-03-17', '0611202342', 'Doctorat', 'Female', 'jihane.b@ou.ma', '2023-06-12 16:21:34', 150, 5500, 150, 0),

@@ -1,49 +1,47 @@
 <?php 
 session_start();
-if (isset($_SESSION['admin_id']) && 
-    isset($_SESSION['role'])) {
+if (isset($_SESSION['r_user_id']) && 
+isset($_SESSION['role'])) {
 
-    if ($_SESSION['role'] == 'Admin') {
-       if (isset($_GET['searchKey'])) {
+    if ($_SESSION['role'] == 'Registrar Office') {
+        if (isset($_GET['searchKey'])) {
 
-       $search_key = $_GET['searchKey'];
-       include "../DB_connection.php";
-       include "data/teacher.php";
-       include "data/subject.php";
-       include "data/grade.php";
-       include "data/class.php";
-       include "data/section.php";
-       $teachers = searchTeachers($search_key, $conn);
+            $search_key = $_GET['searchKey'];
+            include "../DB_connection.php";
+            include "data/teacher.php";
+            include "data/subject.php";
+            include "data/grade.php";
+            include "data/class.php";
+            include "data/section.php";
+            $teachers = searchTeachers($search_key, $conn); 
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin - Rechercher enseignant -</title>
+	<title>Comptable - Rechercher enseignant -</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style2.css">
 	<link rel="icon" href="../G.S (2).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <?php 
-        include "inc/navbar.php";
-        if ($teachers != 0) {
-     ?>
-     <div class="container mt-5">
-        <a href="teacher-add.php"
-           class="btn btn-dark">Ajouter un enseignant</a>
 
-           <form action="teacher-search.php"
-                 method="get" 
-                 class="mt-3 n-table">
+<?php 
+    include "inc/navbar.php";
+
+          
+     ?>
+           
+           <form action="teacher-search.php" 
+                 class="mt-3 n-table"
+                 method="get">
              <div class="input-group mb-3">
                 <input type="text" 
                        class="form-control"
                        name="searchKey"
-                       value="<?=$search_key?>" 
                        placeholder="Rechercher..">
                 <button class="btn btn-primary">
                         <i class="fa fa-search" 
@@ -52,8 +50,9 @@ if (isset($_SESSION['admin_id']) &&
              </div>
            </form>
 
+           
 
-           <?php if (isset($_GET['error'])) { ?>
+           <?php if (isset($_GET['error'])) { ?>             <!--Rechercher sa partie dans le code-->
             <div class="alert alert-danger mt-3 n-table" 
                  role="alert">
               <?=$_GET['error']?>
@@ -66,22 +65,21 @@ if (isset($_SESSION['admin_id']) &&
               <?=$_GET['success']?>
             </div>
             <?php } ?>
+            
+           
 
            <div class="table-responsive">
               <table class="table table-bordered mt-3 n-table">
                 <thead>
                   <tr>
-                  <th scope="col">#</th>
+                    <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>
                     <th scope="col">Nom d'utilisateur</th>
                     <th scope="col">Matières</th>
                     <th scope="col">Classes</th>
-                    <th scope="col">Salaire</th>
-                    <th scope="col">Taux horaire</th>
-                    <th scope="col">Nombre d'heures d'enseignement</th>
-                    <th scope="col">Nombre d'heures d'abscence</th>
+                    <th scope="col">Taux horaire(DH)</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -107,9 +105,8 @@ if (isset($_SESSION['admin_id']) &&
                            echo $s;
                         ?>
                     </td>
-                    
                     <td>
-                    <?php 
+                      <?php 
                            $c = '';
                            $classes = str_split(trim($teacher['class']));
 
@@ -128,15 +125,10 @@ if (isset($_SESSION['admin_id']) &&
 
                         ?>
                     </td>
-                    <td><?=$teacher['salary']?> DH</td>
-                    <td><?=$teacher['taux_horaire']?> DH</td>
-                    <td><?=$teacher['number_of_hours']?></td>
-                    <td><?=$teacher['nombre_absence']?></td>
+                    <td><?=$teacher['taux_horaire']?></td>
                     <td>
-                        <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
-                           class="btn btn-warning">Modifier</a>
-                        <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
-                           class="btn btn-danger">Supprimer</a>
+                        <a href="calcul-salaire.php?teacher_id=<?=$teacher['teacher_id']?>"
+                           class="btn btn-warning">Calculer le salaire</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -146,12 +138,14 @@ if (isset($_SESSION['admin_id']) &&
          <?php }else{ ?>
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
-                  Pas de résultats !
-                <a href="teacher.php"
-                   class="btn btn-dark">Revenir</a>
+                Vide!
               </div>
          <?php } ?>
      </div>
+     <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-é">
+          <i class="fa fa-sign-out fs-3" aria-hidden="true"></i><br>
+           Se déconnecter
+    </a> 
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
@@ -163,11 +157,6 @@ if (isset($_SESSION['admin_id']) &&
 </body>
 </html>
 <?php 
-
-   }else {
-    header("Location: teacher.php");
-    exit;
-   } 
 
   }else {
     header("Location: ../login.php");

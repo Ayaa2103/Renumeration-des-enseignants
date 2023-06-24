@@ -17,6 +17,7 @@ if (isset($_SESSION['teacher_id']) &&
        $salaire = getSalaryById($teacher_id, $conn);
        $numberHours = getNumberOfHoursById($teacher_id, $conn);
        $taux_horaire = gettauxhoraireById($teacher_id, $conn);
+       $abscence = getNumberOfAbsenceById($teacher_id, $conn);
 ?>
 
 <!DOCTYPE html>
@@ -128,11 +129,13 @@ if (isset($_SESSION['teacher_id']) &&
     </div>
 </nav>
     <div class="releve-salaire">
-        <h2>Relevé de salaire de l'enseignant :</h2>
+        <h2>Relevé de salaire de l'enseignant </h2>
         <hr>
-        <p>Salaire net : <span class="montant"><?php echo $salaire[0]; ?>Dh</span></p>
+        <p><span class="text"><?=$teacher['fname']?>  <?=$teacher['lname']?></span></p>
         <p>Taux horaire : <span class="montant"><?php echo $taux_horaire[0]; ?>Dh</span></p>
+        <p>Salaire net : <span class="montant"><?php echo $salaire[0]; ?>Dh</span></p>
         <p>Nombres d'heures d'enseignement : <span class="montant"><?php echo $numberHours[0]; ?> heures</span></p>
+        <p>Nombres d'heures d'absence : <span class="montant"><?php echo $abscence[0]; ?> heures</span></p>
         
         <button class="print-button" onclick="window.print()">Imprimer</button>
     </div>

@@ -23,6 +23,13 @@ if (isset($_SESSION['admin_id']) &&
 	<link rel="icon" href="../G.S (2).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body{
+    background: url(../img/v882batch2-kul-12.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+    }
+  </style>
 </head>
 <body>
     <?php 
@@ -66,7 +73,7 @@ if (isset($_SESSION['admin_id']) &&
               <table class="table table-bordered mt-3 n-table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">#</th> 
                     <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>
@@ -75,6 +82,8 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">Classes</th>
                     <th scope="col">Salaire mensuel</th>
                     <th scope="col">Taux horaire</th>
+                    <th scope="col">Nombre d'heures d'enseignement</th>
+                    <th scope="col">Nombre d'heures d'abscence</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -120,13 +129,15 @@ if (isset($_SESSION['admin_id']) &&
 
                         ?>
                     </td>
-                    <td><?=$teacher['salary']?></td>
-                    <td><?=$teacher['taux_horaire']?></td>
+                    <td><?=$teacher['salary']?> DH</td>
+                    <td><?=$teacher['taux_horaire']?> DH</td>
+                    <td><?=$teacher['number_of_hours']?></td>
+                    <td><?=$teacher['nombre_absence']?></td>
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Modifier</a>
                         <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
-                           class="btn btn-danger">Suprrimer</a>
+                           class="btn btn-danger">Supprimer</a>
                     </td>
                   </tr>
                 <?php } ?>

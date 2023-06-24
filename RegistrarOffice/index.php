@@ -19,7 +19,7 @@ if (isset($_SESSION['r_user_id']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Comptable - Enseignants</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/style2.css">
+	<link rel="stylesheet" href="../css/style1.css">
 	<link rel="icon" href="../G.S (2).png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +31,21 @@ if (isset($_SESSION['r_user_id']) &&
         if ($teachers != 0) {
           
      ?>
-     
+           
+           <form action="teacher-search.php" 
+                 class="mt-3 n-table"
+                 method="get">
+             <div class="input-group mb-3">
+                <input type="text" 
+                       class="form-control"
+                       name="searchKey"
+                       placeholder="Rechercher..">
+                <button class="btn btn-primary">
+                        <i class="fa fa-search" 
+                           aria-hidden="true"></i>
+                      </button>
+             </div>
+           </form>
 
            
 

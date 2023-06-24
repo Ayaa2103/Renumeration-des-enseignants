@@ -4,11 +4,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  background-image: url(../img/Untitled.jpeg);
-	background-size: cover;
-	background-attachment: fixed;
-}
+
+    body{
+    background: url(../img/v882batch2-kul-12.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+    }
+ 
 .wrapper {
   position: absolute;
   width: 80vw;
